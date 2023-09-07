@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario</title>
+</head>
+<body>
+<h1>Formulario</h1>
+<form action="/preview" method="post" enctype="multipart/form-data">
+    <label for="file">Plantilla HTML:</label>
+    <input type="file" id="file" name="file" accept=".html">
+    <br>
+    <button type="button" id="agregarCampo">Agregar</button>
+    <div id="camposTexto"></div>
+    <input type="text" name="keys" placeholder="Clave" />
+    <input type="text" name="values" placeholder="Valor" />
+    <br>
+    <input type="submit" value="Mostrar">
+</form>
+
+<script>
+    document.getElementById("agregarCampo").addEventListener("click", function() {
+        var input = document.createElement("input");
+        input.type = "text";
+        input.name = "keys";
+        input.placeholder = "Clave";
+        document.getElementById("camposTexto").appendChild(input);
+
+        input = document.createElement("input");
+        input.type = "text";
+        input.name = "values";
+        input.placeholder = "Valor";
+        document.getElementById("camposTexto").appendChild(input);
+        document.getElementById("camposTexto").appendChild(document.createElement("br"));
+    });
+</script>
+</body>
+</html>
